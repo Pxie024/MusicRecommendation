@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rate Songs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        input[type="number"] {
+            width: 50px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rate Songs</h1>
+    <form action="/recommend" method="post">
+        {% for song in songs %}
+        <p>
+            <strong>{{ song['Track Name'] }}</strong> - {{ song['Artists'] }}
+            <br>
+            <input type="hidden" name="song_{{ loop.index0 }}" value="{{ song['itemID'] }}">
+            Rate (1 to 5): <input type="number" name="rating_{{ loop.index0 }}" min="0" max="5" required>
+        </p>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

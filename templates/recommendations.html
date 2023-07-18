@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Songs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Songs</h1>
+    <ul>
+        {% for song in songs %}
+        <li>{{ song['Track Name'] }} - {{ song['Artists'] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
